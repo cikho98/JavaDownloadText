@@ -15,16 +15,16 @@ import java.net.URLConnection;
  * @date 2019/05/24 23:42
  */
 public class HttpURLConnectionUtil {
+    private InputStream is;
 
     /**
      * Http get请求
      * @param httpUrl 连接
      * @return 响应数据
      */
-    public static String doGet(String httpUrl){
+    public  String doGet(String httpUrl){
         //链接
         HttpURLConnection connection = null;
-        InputStream is = null;
         BufferedReader br = null;
         StringBuffer result = new StringBuffer();
         try {
@@ -78,7 +78,7 @@ public class HttpURLConnectionUtil {
      * @param param 参数
      * @return
      */
-    public static String doPost(String httpUrl, @Nullable String param) {
+    public  String doPost(String httpUrl, @Nullable String param) {
         StringBuffer result = new StringBuffer();
         //连接
         HttpURLConnection connection = null;
@@ -163,8 +163,11 @@ public class HttpURLConnectionUtil {
         return result.toString();
     }
 
-    public static void main(String[] args) {
-        String message = doGet("http://doc.canglaoshi.org/jsd/?j");
-        System.out.println(message);
+    public InputStream getInputStream(){
+        return is;
     }
+//    public static void main(String[] args) {
+//        String message = doGet("http://doc.canglaoshi.org/jsd/?j");
+//        System.out.println(message);
+//    }
 }
